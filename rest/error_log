@@ -1,0 +1,588 @@
+[20-Oct-2019 22:34:50 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:35:01 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:36:24 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:36:27 Europe/Dublin] PHP Fatal error:  Class 'Database' not found in /home/i561957/public_html/API/config/Core.php on line 25
+[20-Oct-2019 22:36:34 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:37:02 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:37:04 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:37:14 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:37:21 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:21 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:32 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:32 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:34 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:34 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:44 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:44 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:45 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:45 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:46 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:46 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:46 Europe/Dublin] PHP Warning:  require(INCLUDE_PATHdbconfig.php): failed to open stream: No such file or directory in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:46 Europe/Dublin] PHP Fatal error:  require(): Failed opening required 'INCLUDE_PATHdbconfig.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/libraries/Database.php on line 56
+[20-Oct-2019 22:37:55 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:39:28 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:54 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:55 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:56 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:57 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:58 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:40:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:42:18 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 22:42:23 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:43:22 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:43:23 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/config/Core.php(33): Database->query('SELECT * FROM c...')
+#2 /home/i561957/public_html/API/rest/request.php(6): include_once('/home/i561957/p...')
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 22:43:34 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 23:09:02 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 23:09:03 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 23:09:04 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 23:09:05 Europe/Dublin] PHP Fatal error:  Cannot redeclare class Dbconfig in /home/i561957/public_html/includes/dbconfig.php on line 8
+[20-Oct-2019 23:09:59 Europe/Dublin] PHP Fatal error:  Call to a member function query() on a non-object in /home/i561957/public_html/API/rest/request.php on line 34
+[20-Oct-2019 23:11:14 Europe/Dublin] PHP Fatal error:  Cannot access private property Core::$database in /home/i561957/public_html/API/rest/request.php on line 34
+[20-Oct-2019 23:14:04 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Art' in 'where clause'' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/rest/request.php(34): Database->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 23:15:34 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'art' in 'where clause'' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/rest/request.php(34): Database->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 23:16:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'art' in 'where clause'' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/rest/request.php(34): Database->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[20-Oct-2019 23:19:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Art' in 'where clause'' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT * FROM c...')
+#1 /home/i561957/public_html/API/rest/request.php(34): Database->query('SELECT * FROM c...')
+#2 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[21-Oct-2019 15:57:02 Europe/Dublin] PHP Fatal error:  Call to undefined method Database::prepare() in /home/i561957/public_html/API/rest/request.php on line 17
+[21-Oct-2019 18:41:35 Europe/Dublin] PHP Fatal error:  Class 'ResponseBuilder' not found in /home/i561957/public_html/API/rest/request.php on line 19
+[21-Oct-2019 18:42:38 Europe/Dublin] PHP Fatal error:  Cannot access private property Response::$responseCode in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 20
+[21-Oct-2019 18:43:22 Europe/Dublin] PHP Fatal error:  Cannot access private property Response::$responseCode in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 20
+[21-Oct-2019 18:43:25 Europe/Dublin] PHP Fatal error:  Cannot access private property Response::$responseCode in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 20
+[21-Oct-2019 19:21:27 Europe/Dublin] PHP Fatal error:  Call to undefined function validateInput() in /home/i561957/public_html/API/rest/autoprovisioning/model/Category.php on line 28
+[30-Oct-2019 11:50:55 Europe/Dublin] PHP Fatal error:  Class 'User' not found in /home/i561957/public_html/API/rest/request.php on line 77
+[30-Oct-2019 11:51:46 Europe/Dublin] PHP Warning:  include_once(autoprovisioning/user/helper/User.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/request.php on line 12
+[30-Oct-2019 11:51:46 Europe/Dublin] PHP Warning:  include_once(): Failed opening 'autoprovisioning/user/helper/User.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/request.php on line 12
+[30-Oct-2019 11:51:46 Europe/Dublin] PHP Fatal error:  Class 'User' not found in /home/i561957/public_html/API/rest/request.php on line 77
+[30-Oct-2019 11:52:42 Europe/Dublin] PHP Fatal error:  Class 'AuthenticationController' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 32
+[30-Oct-2019 11:56:27 Europe/Dublin] PHP Warning:  include_once(../../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:56:27 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:56:27 Europe/Dublin] PHP Warning:  include_once(../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:56:27 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:56:27 Europe/Dublin] PHP Fatal error:  Class 'JWT' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 41
+[30-Oct-2019 11:56:35 Europe/Dublin] PHP Warning:  include_once(../../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:56:35 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:56:35 Europe/Dublin] PHP Warning:  include_once(../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:56:35 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:56:35 Europe/Dublin] PHP Fatal error:  Class 'JWT' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 41
+[30-Oct-2019 11:59:07 Europe/Dublin] PHP Warning:  include_once(../../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:59:07 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 11:59:07 Europe/Dublin] PHP Warning:  include_once(../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:59:07 Europe/Dublin] PHP Warning:  include_once(): Failed opening '../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 11:59:07 Europe/Dublin] PHP Fatal error:  Class 'JWT' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 41
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/usercontrollers/AuthenticationController.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 3
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/usercontrollers/AuthenticationController.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 3
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user../helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user../helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/usercontrollers/LoginController.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/usercontrollers/LoginController.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[30-Oct-2019 12:02:02 Europe/Dublin] PHP Fatal error:  Class 'AuthenticationController' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 36
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/JWT.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 4
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/JWT.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 4
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:04:00 Europe/Dublin] PHP Fatal error:  Class 'JWT' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 42
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 3
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/JWT.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 4
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/controllers/helper/JWT.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 4
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/helper/Validation.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/helper/Validation.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 4
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php:3) in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/LoginController.php on line 2
+[30-Oct-2019 12:21:55 Europe/Dublin] PHP Fatal error:  Class 'JWT' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 42
+[30-Oct-2019 12:27:18 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Invalid segment encoding' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:42
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(29): JWT::decode('eyJ0eXAiOiJKV1Q...', '08d6b25183e0191...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(38): AuthenticationController::decryptPostParams('eyJ0eXAiOiJKV1Q...')
+#2 /home/i561957/public_html/API/rest/request.php(77): User::login(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 42
+[30-Oct-2019 13:09:12 Europe/Dublin] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 112
+[30-Oct-2019 13:13:26 Europe/Dublin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php on line 111
+[30-Oct-2019 14:56:49 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Signature verification failed' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:50
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(29): JWT::decode('eyJ0eXAiOiJKV1Q...', '08d6b25183e0191...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(40): AuthenticationController::decryptPostParams('eyJ0eXAiOiJKV1Q...')
+#2 /home/i561957/public_html/API/rest/request.php(79): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 50
+[30-Oct-2019 15:01:56 Europe/Dublin] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 41
+[25-Nov-2019 18:33:17 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:17 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:17 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:17 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:23 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:31 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:33:31 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:05 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:05 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:29 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:34 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:34 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:34:54 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:35:06 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:35:38 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:36:15 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:36:18 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:44:10 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 18:44:10 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Nov-2019 19:15:06 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[16-Dec-2019 23:55:35 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[16-Dec-2019 23:55:35 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[16-Dec-2019 23:57:08 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:25:36 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 30 OFFSET 30' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(127): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(64): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:26:39 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 30 OFFSET 30' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(127): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(64): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:26:41 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 30 OFFSET 30' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(127): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(64): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:26:42 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 30 OFFSET 30' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(127): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(64): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:27:45 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%Brian% AND authors.lastname = %Connolly% OR authors.firstname = %Connolly% AND ' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(128): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(64): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Dec-2019 13:41:41 Europe/Dublin] PHP Fatal error:  Class 'Reviews' not found in /home/i561957/public_html/API/rest/request.php on line 76
+[25-Dec-2019 13:42:57 Europe/Dublin] PHP Fatal error:  Class 'Reviews' not found in /home/i561957/public_html/API/rest/request.php on line 76
+[25-Dec-2019 13:43:55 Europe/Dublin] PHP Fatal error:  Class 'Reviews' not found in /home/i561957/public_html/API/rest/request.php on line 76
+[25-Dec-2019 15:08:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''search_history' GROUP BY 'bookid' ORDER BY 'Rows' desc' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT COUNT(*)...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(118): Database->query('SELECT COUNT(*)...')
+#2 /home/i561957/public_html/API/rest/request.php(71): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[26-Dec-2019 00:00:50 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Riley' OR authors.firstname = ''Riley' AND authors.lastname = 'Mary' LIMIT 30 OF' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(126): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(65): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[26-Dec-2019 00:01:01 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Riley' OR authors.firstname = 'O'Riley' AND authors.lastname = 'Mary' LIMIT 30 O' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('Select * FROM a...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php(126): Database->query('Select * FROM a...')
+#2 /home/i561957/public_html/API/rest/request.php(65): Author::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[07-Jan-2020 11:29:56 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[07-Jan-2020 11:29:56 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[07-Jan-2020 13:29:29 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[07-Jan-2020 13:29:29 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[07-Jan-2020 13:31:34 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[07-Jan-2020 13:31:34 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[07-Jan-2020 13:31:43 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[07-Jan-2020 13:31:43 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[07-Jan-2020 13:48:12 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Signature verification failed' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:50
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode('eyJ0eXAiOiJKV1Q...', 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage('eyJ0eXAiOiJKV1Q...')
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 50
+[07-Jan-2020 14:20:52 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Signature verification failed' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:50
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode('eyJ0eXAiOiJKV1Q...', 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage('eyJ0eXAiOiJKV1Q...')
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 50
+[08-Jan-2020 08:14:45 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 08:14:45 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 10:49:09 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 10:49:09 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:23:59 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:23:59 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:25:05 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:25:05 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:25:21 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:25:21 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:27:14 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:27:14 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:27:28 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:27:29 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:28:01 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:28:01 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[08-Jan-2020 12:28:03 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[08-Jan-2020 12:28:03 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), 'fc66092905ee35f...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(47): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(97): User::login(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[29-Jan-2020 12:50:59 Europe/Dublin] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 156
+[29-Jan-2020 12:53:11 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('INSERT INTO fav...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(204): Database->query('INSERT INTO fav...')
+#2 /home/i561957/public_html/API/rest/request.php(106): User::addFavourite(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[29-Jan-2020 12:56:21 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('INSERT INTO fav...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(204): Database->query('INSERT INTO fav...')
+#2 /home/i561957/public_html/API/rest/request.php(106): User::addFavourite(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[29-Jan-2020 15:26:25 Europe/Dublin] PHP Warning:  file_get_contents(../../../../review_text/_.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:27:42 Europe/Dublin] PHP Warning:  file_get_contents(../../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:27:44 Europe/Dublin] PHP Warning:  file_get_contents(../../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:28:40 Europe/Dublin] PHP Warning:  file_get_contents(../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:29:29 Europe/Dublin] PHP Warning:  file_get_contents(/../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:30:12 Europe/Dublin] PHP Warning:  file_get_contents(/../../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:31:02 Europe/Dublin] PHP Warning:  file_get_contents(public_html/review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:33:38 Europe/Dublin] PHP Warning:  file_get_contents(/home/i561957/public_html/API/rest/autoprovisioning/model../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 15:34:23 Europe/Dublin] PHP Warning:  file_get_contents(/home/i561957/public_html/API/rest/autoprovisioning/model/../../../review_text/1493_1.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 83
+[29-Jan-2020 17:10:05 Europe/Dublin] PHP Warning:  file_get_contents(/home/i561957/public_html//review_text/771_36_36_2.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 165
+[29-Jan-2020 17:15:00 Europe/Dublin] PHP Warning:  file_get_contents(/home/i561957/public_html//review_text/771_36_36_2.txt): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php on line 165
+[05-Feb-2020 18:24:16 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:17 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:19 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:22 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:30 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:53 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:56 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:56 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:56 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:56 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:24:58 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:25:03 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[05-Feb-2020 18:25:55 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[10-Feb-2020 20:27:42 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[10-Feb-2020 20:28:39 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[10-Feb-2020 20:28:39 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[10-Feb-2020 20:28:43 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[10-Feb-2020 20:28:43 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[11-Feb-2020 05:59:13 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[16-Feb-2020 17:30:56 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[16-Feb-2020 17:30:56 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[25-Feb-2020 19:22:08 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:22:12 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:22:13 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:22:13 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:22:13 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:23:14 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:26:01 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:39:02 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/../../../classes/access_user/access_user_class.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[25-Feb-2020 19:39:02 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/../../../classes/access_user/access_user_class.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[25-Feb-2020 19:39:02 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:39:10 Europe/Dublin] PHP Warning:  include_once(/home/i561957/public_html/API/rest/autoprovisioning/user/../../../classes/access_user/access_user_class.php): failed to open stream: No such file or directory in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[25-Feb-2020 19:39:10 Europe/Dublin] PHP Warning:  include_once(): Failed opening '/home/i561957/public_html/API/rest/autoprovisioning/user/../../../classes/access_user/access_user_class.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 5
+[25-Feb-2020 19:39:10 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:43:16 Europe/Dublin] PHP Fatal error:  Class 'AccessUser' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 75
+[25-Feb-2020 19:47:24 Europe/Dublin] PHP Warning:  explode() expects parameter 2 to be string, object given in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 33
+[25-Feb-2020 19:47:24 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(Object(stdClass), '38735FAA2F49335...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/user/User.php(78): AuthenticationController::decryptMessage(Object(stdClass))
+#2 /home/i561957/public_html/API/rest/request.php(104): User::register(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[25-Feb-2020 20:24:46 Europe/Dublin] PHP Fatal error:  Cannot use object of type stdClass as array in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 171
+[25-Feb-2020 20:28:37 Europe/Dublin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 171
+[25-Feb-2020 20:39:35 Europe/Dublin] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 172
+[25-Feb-2020 20:42:32 Europe/Dublin] PHP Fatal error:  Call to undefined function utf8ize() in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 26
+[25-Feb-2020 21:06:17 Europe/Dublin] PHP Fatal error:  Call to undefined function utf8ize() in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 26
+[25-Feb-2020 21:10:58 Europe/Dublin] PHP Warning:  mb_convert_encoding() expects parameter 1 to be string, array given in /home/i561957/public_html/API/rest/autoprovisioning/helper/ResponseBuilder.php on line 26
+[02-Apr-2020 19:34:25 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[02-Apr-2020 19:34:32 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[02-Apr-2020 19:35:26 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[02-Apr-2020 19:35:26 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[02-Apr-2020 19:35:26 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[02-Apr-2020 19:35:29 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 22:59:54 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT author_x...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(255): Database->query('SELECT author_x...')
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 23:00:33 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT author_x...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(255): Database->query('SELECT author_x...')
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 23:00:34 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('SELECT author_x...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(255): Database->query('SELECT author_x...')
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 23:02:29 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(235): Database->query(NULL)
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 23:02:30 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(235): Database->query(NULL)
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[14-May-2020 23:02:31 Europe/Dublin] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty' in /home/i561957/public_html/libraries/Database.php:81
+Stack trace:
+#0 /home/i561957/public_html/libraries/Database.php(81): PDO->prepare('')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php(235): Database->query(NULL)
+#2 /home/i561957/public_html/API/rest/request.php(143): Book::get(Array, Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/libraries/Database.php on line 81
+[16-May-2020 18:32:51 Europe/Dublin] PHP Fatal error:  Class 'UserRegistrationFactory' not found in /home/i561957/public_html/API/rest/autoprovisioning/user/User.php on line 149
+[16-May-2020 18:35:28 Europe/Dublin] PHP Fatal error:  Call to undefined method UserRegistrationFactory::check_new_password() in /home/i561957/public_html/API/rest/autoprovisioning/user/UserRegistrationFactory.php on line 53
+[16-May-2020 18:37:23 Europe/Dublin] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/i561957/public_html/API/rest/autoprovisioning/user/UserRegistrationFactory.php on line 82
+[16-May-2020 18:37:23 Europe/Dublin] PHP Warning:  mysql_query(): A link to the server could not be established in /home/i561957/public_html/API/rest/autoprovisioning/user/UserRegistrationFactory.php on line 82
+[16-May-2020 18:55:44 Europe/Dublin] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/i561957/public_html/API/rest/autoprovisioning/user/UserRegistrationFactory.php on line 97
+[16-May-2020 18:55:44 Europe/Dublin] PHP Warning:  mysql_query(): A link to the server could not be established in /home/i561957/public_html/API/rest/autoprovisioning/user/UserRegistrationFactory.php on line 97
+[20-May-2020 01:40:08 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[20-May-2020 01:40:17 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[20-May-2020 01:40:30 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[04-Jul-2020 11:04:46 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[04-Jul-2020 13:55:20 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[04-Jul-2020 13:55:47 Europe/Dublin] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/i561957/public_html/libraries/Database.php on line 81
+[11-Aug-2020 23:21:07 Europe/Dublin] PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'Wrong number of segments' in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php:35
+Stack trace:
+#0 /home/i561957/public_html/API/rest/autoprovisioning/user/controllers/AuthenticationController.php(59): JWT::decode(NULL, '38735FAA2F49335...')
+#1 /home/i561957/public_html/API/rest/autoprovisioning/model/Reviews.php(284): AuthenticationController::decryptMessage(NULL)
+#2 /home/i561957/public_html/API/rest/request.php(277): Reviews::postReview(Object(stdClass), Object(Database))
+#3 {main}
+  thrown in /home/i561957/public_html/API/rest/autoprovisioning/user/helper/JWT.php on line 35
+[05-Dec-2020 11:51:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[05-Dec-2020 11:51:06 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[05-Dec-2020 18:01:37 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[05-Dec-2020 20:35:10 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[05-Dec-2020 20:35:38 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[06-Dec-2020 11:35:41 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[06-Dec-2020 20:14:10 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[06-Dec-2020 20:14:10 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[10-Dec-2020 07:29:38 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 14:27:44 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[11-Dec-2020 16:48:20 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 16:48:20 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 18:17:49 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 20:45:50 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 20:46:35 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 20:47:49 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[11-Dec-2020 20:48:52 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[12-Dec-2020 16:37:49 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[12-Dec-2020 16:37:49 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[18-Dec-2020 06:25:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[24-Dec-2020 21:38:11 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[24-Dec-2020 21:38:11 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[27-Dec-2020 10:24:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[27-Dec-2020 10:24:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[04-Jan-2021 19:27:42 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[04-Jan-2021 19:27:42 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jan-2021 09:13:17 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jan-2021 09:13:17 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jan-2021 15:14:22 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jan-2021 15:14:22 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[27-Apr-2021 17:07:06 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:29:40 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[12-May-2021 02:29:40 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[12-May-2021 02:31:48 UTC] PHP Warning:  A non-numeric value encountered in /home/i561957/public_html/API/rest/autoprovisioning/model/Book.php on line 255
+[07-Jun-2021 21:26:16 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jun-2021 21:26:16 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[07-Jun-2021 21:27:37 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/i561957/public_html/API/rest/autoprovisioning/model/Author.php on line 129
+[10-Jun-2021 18:59:06 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
+[10-Jun-2021 19:02:10 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; Access_user has a deprecated constructor in /home/i561957/public_html/classes/access_user/access_user_class.php on line 35
