@@ -1,6 +1,7 @@
 <?php
 define('DACCESS', 1);
 // required headers
+ini_set("zlib.output_compression", 4096);
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
