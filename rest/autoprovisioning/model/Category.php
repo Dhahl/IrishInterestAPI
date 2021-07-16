@@ -56,9 +56,8 @@ class Category{
         //Execute query
         try {
             $database->query($query);
-            $queryResult = $database->loadObjectList();
-            $respBuilder = new ResponseBuilder(new Response($queryResult, 200, $token));
-            $respBuilder->fire();
+            http_response_code(200);
+            echo $database->loadJsonObjectList();
         } catch (Exception $e) {
             //Exception response.
             $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error.", 500, $token));
