@@ -119,9 +119,9 @@ define('MISC_COUNT_ALL_BOOKS', 'getBookCount');
 
 //CATEGORY - SQL STATEMENTS
 
-define('SQL_GET_CATEGORY_BY_ID', 'SELECT * FROM categories where id = ');
+define('SQL_GET_CATEGORY_BY_ID', 'SELECT id, Name as name FROM categories where id = ');
 
-define('SQL_GET_CATEGORY_ALL', 'SELECT * FROM categories');
+define('SQL_GET_CATEGORY_ALL', 'SELECT id, TRIM(Name) as name FROM categories ORDER BY name');
 
 
 
@@ -131,7 +131,7 @@ define('SQL_GET_BOOK_ALL_BY_CATEGORY', 'SELECT * FROM publications WHERE categor
 
 define('SQL_GET_BOOK_ALL_BY_AUTHOR', 'SELECT author_x_book.*, publications.* FROM author_x_book INNER JOIN publications ON author_x_book.bookid = publications.id WHERE author_x_book.authorid = ');
 
-define('SQL_GET_BOOK_ALL_LATEST', 'SELECT * FROM publications WHERE published < ');
+define('SQL_GET_BOOK_ALL_LATEST', 'SELECT author, authorid, id, image, title FROM publications WHERE published < ');
 
 define('SQL_GET_BOOK_BY_ID', 'SELECT * FROM publications WHERE id = ');
 
