@@ -41,7 +41,7 @@ class Book
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
-            case BOOK_GET_BY_CATEGORY2: {
+            case BOOK_GET_ALL_BY_CATEGORY: {
                     //Gets all books from a category, has pagination
                     $categoryId = (int) $getArray['categoryId'];
                     $offset = (int) $getArray['offset'];
@@ -59,20 +59,6 @@ class Book
                         } finally {
                             return;
                         }
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
-                    }
-                    break;
-                }
-            case BOOK_GET_ALL_BY_CATEGORY: {
-                    //Gets all books from a category, has pagination
-                    $category = $getArray['categoryId'];
-                    $offset = $getArray['offset'];
-
-                    //Getting books based on category ID
-                    if (Validation::validateInput($offset) && Validation::validateInput($category)) {
-                        $query = SQL_GET_BOOK_ALL_BY_CATEGORY . $category . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
                     } else {
                         //Illegal GET parameter, SQL injection attempt.
                         Validation::badRequest($token);

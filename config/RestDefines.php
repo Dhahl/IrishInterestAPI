@@ -32,7 +32,6 @@ define('CONTACT_US', 'contactUs');
 //BOOK search types
 define('BOOK_GET_ALL_BY_AUTHOR', 'byAuthor');
 define('BOOK_GET_ALL_BY_CATEGORY', 'byCategory');
-define('BOOK_GET_BY_CATEGORY2', 'byCategory2');
 define('BOOK_GET_BY_ID2', 'getById2');
 define('BOOK_GET_LATEST', 'getLatest');
 define('BOOK_GET_LATEST2', 'getLatest2');
@@ -70,7 +69,6 @@ define('SQL_GET_CATEGORY_ALL', 'SELECT categories.id, TRIM(categories.Name) as n
 								ORDER BY name');
 
 //BOOK - SQL STATEMENTS
-define('SQL_GET_BOOK_ALL_BY_CATEGORY', 'SELECT author, authorid, id, image, title FROM publications WHERE categoryid =');
 define('SQL_GET_BOOK_ALL_BY_AUTHOR', 'SELECT author_x_book.*, publications.* FROM author_x_book INNER JOIN publications ON author_x_book.bookid = publications.id WHERE author_x_book.authorid = ');
 define('SQL_GET_BOOK_ALL_LATEST', 'SELECT author, authorid, id, image, title FROM publications WHERE published < ');
 define('SQL_GET_BOOK_BY_ID', 'SELECT * FROM publications WHERE id = ');
