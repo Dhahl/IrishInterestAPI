@@ -106,6 +106,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
      */
 
+    //  Make sure we decode strings in UTF-8, otherwise json_decode will fail on non latin1 chars
+    $core->database->query("SET NAMES 'utf8'");
 
 
     switch ($_GET['value']) {

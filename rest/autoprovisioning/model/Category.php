@@ -35,8 +35,6 @@ class Category{
 
         //Initial state variables
         $query = null;
-        $queryResult = null;
-        $response_code = null;
         $token = $_GET['token'];
 
         //Selecting query based on GET parameters
