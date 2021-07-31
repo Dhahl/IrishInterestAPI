@@ -30,7 +30,7 @@ define('REMOVE_FAVOURITE', 'removeFavourite');
 define('CONTACT_US', 'contactUs');
 
 //BOOK search types
-define('BOOK_GET_ALL_BY_AUTHOR', 'byAuthor');
+define('BOOK_GET_ALL_BY_AUTHOR_ID', 'byAuthorID');
 define('BOOK_GET_ALL_BY_CATEGORY', 'byCategory');
 define('BOOK_GET_BY_ID2', 'getById2');
 define('BOOK_GET_LATEST', 'getLatest');

@@ -49,7 +49,7 @@ class Book
                     //Getting books based on category ID
                     if (Validation::validateInput($offset) && Validation::validateInput($categoryId)) {
                         try {
-                            $q = "SELECT TRIM(author) as author, authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
+                            $q = "SELECT TRIM(author) as author, CAST(authorid AS UNSIGNED) as authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
                             $database->query($q);
                             http_response_code(200);
                             echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
@@ -65,19 +65,33 @@ class Book
                     }
                     break;
                 }
-            case BOOK_GET_ALL_BY_AUTHOR: {
+            case BOOK_GET_ALL_BY_AUTHOR_ID: {
                     //Gets all books from an author, has pagination
-                    $author = $getArray['authorId'];
-                    $offset = $getArray['offset'];
+                    $authorID = (int) $getArray['authorID'];
+                    $offset = (int) $getArray['offset'];
 
-                    //Getting books based on author ID
-                    if (Validation::validateInput($offset) && Validation::validateInput($author)) {
-                        $query = SQL_GET_BOOK_ALL_BY_AUTHOR . $author . ' LIMIT ' .  30 . ' OFFSET ' .  $offset;
+                    //Getting books based on category ID
+                    if (Validation::validateInput($offset) && Validation::validateInput($authorID)) {
+                        try {
+                            $q = "SELECT DISTINCT publications.id, publications.image, title, publications.published,
+                                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
+                                        FROM publications
+                                        INNER JOIN author_x_book on publications.id = author_x_book.bookid 
+                                        INNER JOIN authors on authors.id = author_x_book.authorid
+                                        WHERE authors.id = ${authorID} LIMIT 30 OFFSET ${offset}";
+                            $database->query($q);
+                            http_response_code(200);
+                            echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                        } catch (Exception $e) {
+                            $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                            $respBuilder->fire();
+                        } finally {
+                            return;
+                        }
                     } else {
                         //Illegal GET parameter, SQL injection attempt.
                         Validation::badRequest($token);
                     }
-                    break;
                 }
                 case BOOK_GET_LATEST2: {
                         //Gets all books from featured, has pagination
