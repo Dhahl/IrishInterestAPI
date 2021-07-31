@@ -40,6 +40,21 @@ class Author
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
+
+            case AUTHORS_ABC_COUNT: {
+                try {
+                    $q = "SELECT substr(TRIM(lastname),1,1) as alpha, COUNT(id) as count FROM authors GROUP BY alpha ORDER BY alpha";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                    $respBuilder->fire();
+                } finally {
+                    return;
+                }
+            }
+
             case AUTHORS_COUNT: {
                 try {
                     $q = "SELECT COUNT(id) as authors_count FROM authors";
