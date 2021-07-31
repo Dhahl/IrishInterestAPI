@@ -37,18 +37,38 @@ class Author
         //Initial state variables
         $query = null;
         $queryResult = null;
-        $response_code = null;
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
+            case AUTHORS_COUNT: {
+                try {
+                    $q = "SELECT COUNT(id) as authors_count FROM authors";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo $database->loadResult();
+                } catch (Exception $e) {
+                    $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                    $respBuilder->fire();
+                } finally {
+                    return;
+                }
+            }
             case AUTHOR_GET_ALL:
             {
                 //Gets all authors, has pagination
-                $offset = $getArray['offset'];
-
-                //Getting all authors
+                $offset = (int) $getArray['offset'];
                 if (Validation::validateInput($offset)) {
-                    $query = str_replace('{{OFFSET}}', $offset, SQL_GET_AUTHOR_ALL);
+                    try {
+                        $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors ORDER BY lastname ASC LIMIT 30 OFFSET ${offset}";
+                        $database->query($q);
+                        http_response_code(200);
+                        echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                    } catch (Exception $e) {
+                        $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                        $respBuilder->fire();
+                    } finally {
+                        return;
+                    }
                 } else {
                     //Illegal GET parameter, SQL injection attempt.
                     Validation::badRequest($token);

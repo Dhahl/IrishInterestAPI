@@ -41,6 +41,7 @@ define('BOOK_GET_COMING_SOON', 'comingSoon');
 
 //AUTHOR search types
 define('AUTHOR_GET_ALL', 'getAll');
+define('AUTHORS_COUNT', 'count');
 define('AUTHOR_GET_BY_ID', 'getById');
 define('AUTHOR_GET_BY_NAME', 'byName');
 define('AUTHOR_GET_BY_BOOK_ID', 'byBookId');
@@ -90,7 +91,6 @@ define('SQL_GET_AUTHOR_BY_LASTNAME', 'Select * FROM authors WHERE authors.lastna
 define('SQL_GET_AUTHOR_BY_QUERY', 'Select * FROM authors WHERE ' . '{{ENTIRE_QUERY}}' . 'LIMIT 30 OFFSET {{OFFSET}}');
 define('SQL_GET_AUTHOR_BY_QUERY_WORD_MATCH_ADDITIONAL', 'authors.firstname LIKE ' . "'" . '%{{QUERY}}%' . "'" . ' OR authors.lastname LIKE ' . "'" . '%{{QUERY}}%' . "'" . '{{QUERY_OR}} ' );
 
-define('SQL_GET_AUTHOR_ALL', 'SELECT auths.* FROM authors AS auths ORDER BY auths.lastname ASC LIMIT 30 OFFSET {{OFFSET}}');
 define('SQL_GET_AUTHOR_BY_BOOK_ID', 'SELECT author_x_book.*, authors.* 
         			            FROM author_x_book LEFT JOIN authors 
         			            ON  author_x_book.authorid = authors.id
