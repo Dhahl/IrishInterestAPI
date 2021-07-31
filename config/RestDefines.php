@@ -43,6 +43,7 @@ define('BOOK_GET_COMING_SOON', 'comingSoon');
 define('AUTHOR_GET_ALL', 'getAll');
 define('AUTHORS_COUNT', 'count');
 define('AUTHORS_ABC_COUNT', 'abcCount');
+define('AUTHORS_LASTNAME_STARTS_WITH', 'byLastNameStartsWith');
 define('AUTHOR_GET_BY_ID', 'getById');
 define('AUTHOR_GET_BY_NAME', 'byName');
 define('AUTHOR_GET_BY_BOOK_ID', 'byBookId');

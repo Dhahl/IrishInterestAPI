@@ -53,6 +53,27 @@ class Author
                 } finally {
                     return;
                 }
+                break;
+            }
+
+            case AUTHORS_LASTNAME_STARTS_WITH: {
+                $startsWith = (String) $getArray['startsWith'];
+                if (Validation::validateInput($startsWith) == false) {
+                    Validation::badRequest($token);
+                    return;
+                }
+                try {
+                    $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE TRIM(lastname) LIKE '${startsWith}%' ORDER BY lastname ASC";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                    $respBuilder->fire();
+                } finally {
+                    return;
+                }
+                break;
             }
 
             case AUTHORS_COUNT: {
@@ -67,7 +88,9 @@ class Author
                 } finally {
                     return;
                 }
+                break;
             }
+
             case AUTHOR_GET_ALL:
             {
                 //Gets all authors, has pagination
@@ -90,6 +113,7 @@ class Author
                 }
                 break;
             }
+
             case AUTHOR_GET_BY_ID:
             {
                 //Gets author by ID
@@ -103,6 +127,7 @@ class Author
                 }
                 break;
             }
+
             case AUTHOR_GET_BY_NAME:
             {
                 //Gets author by first name or last name or both
@@ -182,10 +207,10 @@ class Author
                 }
                 break;
             }
+
             case AUTHOR_GET_BY_BOOK_ID:
             {
                 $bookId = $getArray['bookId'];
-
                 if (Validation::validateInput($bookId)) {
                     $query = str_replace('{{BOOK_ID}}', $bookId, SQL_GET_AUTHOR_BY_BOOK_ID);
                 } else {
