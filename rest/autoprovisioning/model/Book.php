@@ -78,6 +78,27 @@ class Book
                 }
                 break;
             }
+            case "getPublished": {
+                    $offset = (int) $getArray['offset'];
+                    $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
+                    try {
+                        $q = "SELECT TRIM(author) as author, 
+                        COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                        id, image, title 
+                        FROM publications 
+                        WHERE publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                        ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}";
+                        $database->query($q);
+                        http_response_code(200);
+                        echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                    } catch (Exception $e) {
+                        http_response_code(500);
+                        echo "Error, Internal Server Error.";
+                    } finally {
+                        return;
+                    }
+                    break;
+                }
             case "getLatest2": {
                 $offset = (int) $getArray['offset'];
                 $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
@@ -86,8 +107,28 @@ class Book
                         COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
                         id, image, title 
                         FROM publications 
-                        WHERE publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
                         ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}"; 
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
+                }
+                break;
+            }
+            case "getComingSoon": {
+                $offset = (int) $getArray['offset'];
+                $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
+                try {
+                    $q = "SELECT TRIM(author) as author, 
+                        COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                        id, image, title 
+                        FROM publications
+                        WHERE publications.published >= DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                        ORDER BY published ASC LIMIT ${limit} OFFSET ${offset}";
                     $database->query($q);
                     http_response_code(200);
                     echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
@@ -165,20 +206,6 @@ class Book
                     $respBuilder = new ResponseBuilder(new Response($books, 200, $token));
                     $respBuilder->fire();
                     exit();
-                } else {
-                    //Illegal GET parameter, SQL injection attempt.
-                    Validation::badRequest($token);
-                }
-                break;
-            }
-            case "comingSoon": {
-                //Gets all books coming soon
-                $offset = $getArray['offset'];
-                $date = new DateTime('tomorrow');
-                $date = $date->format('Y-m-d');
-
-                if (Validation::validateInput($offset)) {
-                    $query = SQL_GET_BOOK_COMING_SOON . "'" . $date . "'" . ' ORDER BY published ASC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
                 } else {
                     //Illegal GET parameter, SQL injection attempt.
                     Validation::badRequest($token);
