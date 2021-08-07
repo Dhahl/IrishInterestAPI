@@ -49,7 +49,7 @@ class Book
                     //Getting books based on category ID
                     if (Validation::validateInput($offset) && Validation::validateInput($categoryId)) {
                         try {
-                            $q = "SELECT TRIM(author) as author, CAST(authorid AS UNSIGNED) as authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
+                            $q = "SELECT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
                             $database->query($q);
                             http_response_code(200);
                             echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
@@ -99,14 +99,21 @@ class Book
                         $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
                         if (Validation::validateInput($offset)) {
                             try {
-                                $q = "SELECT publications.id, publications.image, title, publications.published,
-										MIN(authors.id) as authorid, MIN(TRIM(authors.firstname)) as firstname, MIN(TRIM(authors.lastname)) as lastname
-                                        FROM publications, authors, author_x_book
-                                        WHERE publications.id = author_x_book.bookid 
-                                        AND authors.id = author_x_book.authorid
-                                        AND publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
-                                        GROUP BY publications.id
-                                        ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}";
+                                $q= "SELECT TRIM(author) as author, 
+                                    COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                                    id, image, title 
+                                    FROM publications 
+                                    WHERE publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                                    ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}"; 
+
+                                // $q = "SELECT publications.id, publications.image, title, publications.published,
+								// 		MIN(authors.id) as authorid, MIN(TRIM(authors.firstname)) as firstname, MIN(TRIM(authors.lastname)) as lastname
+                                //         FROM publications, authors, author_x_book
+                                //         WHERE publications.id = author_x_book.bookid 
+                                //         AND authors.id = author_x_book.authorid
+                                //         AND publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                                //         GROUP BY publications.id
+                                //         ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}";
                                 $database->query($q);
                                 http_response_code(200);
                                 echo $database->loadJsonObjectList();
