@@ -29,16 +29,6 @@ define('GET_FAVOURITES', 'getFavourites');
 define('REMOVE_FAVOURITE', 'removeFavourite');
 define('CONTACT_US', 'contactUs');
 
-//BOOK search types
-define('BOOK_GET_ALL_BY_AUTHOR_ID', 'byAuthorID');
-define('BOOK_GET_ALL_BY_CATEGORY', 'byCategory');
-define('BOOK_GET_BY_ID2', 'getById2');
-define('BOOK_GET_LATEST', 'getLatest');
-define('BOOK_GET_LATEST2', 'getLatest2');
-define('BOOK_GET_BY_SEARCH', 'bySearch');
-define('BOOK_GET_TOP_SEARCHED_BOOKS', 'topSearched');
-define('BOOK_GET_COMING_SOON', 'comingSoon');
-
 //AUTHOR search types
 define('AUTHOR_GET_ALL', 'getAll');
 define('AUTHORS_COUNT', 'count');

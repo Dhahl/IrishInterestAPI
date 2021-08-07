@@ -40,7 +40,7 @@ class Book
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
-            case BOOK_GET_ALL_BY_CATEGORY: {
+            case "byCategory": {
                 $categoryId = (int) $getArray['categoryId'];
                 $offset = (int) $getArray['offset'];
                 try {
@@ -56,7 +56,7 @@ class Book
                 }
                 break;
             }
-            case BOOK_GET_ALL_BY_AUTHOR_ID: {
+            case "byAuthorID": {
                 //Gets all books from an author, has pagination
                 $authorID = (int) $getArray['authorID'];
                 $offset = (int) $getArray['offset'];
@@ -78,7 +78,7 @@ class Book
                 }
                 break;
             }
-            case BOOK_GET_LATEST2: {
+            case "getLatest2": {
                 $offset = (int) $getArray['offset'];
                 $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
                 try {
@@ -90,7 +90,7 @@ class Book
                         ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}"; 
                     $database->query($q);
                     http_response_code(200);
-                    echo $database->loadJsonObjectList();
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
                 } catch (Exception $e) {
                     http_response_code(500);
                     echo "Error, Internal Server Error.";
@@ -99,7 +99,7 @@ class Book
                 }
                 break;
             }
-            case BOOK_GET_BY_ID2: {
+            case "getById2": {
                 $bookId = (int) $getArray['bookId'];
                 try {
                     $q = "SELECT publications.id, publications.image, publications.title, publications.synopsis,
@@ -119,7 +119,7 @@ class Book
                     return;
                 }
             }
-            case BOOK_GET_BY_SEARCH: {
+            case "bySearch": {
                     //Returns results matching the search input, has pagination
                     $search = $getArray['search'];
                     $offset = $getArray['offset'];
@@ -133,45 +133,45 @@ class Book
                     }
                     break;
                 }
-            case BOOK_GET_TOP_SEARCHED_BOOKS: {
-                    $offset = $getArray['offset'];
-                    //Getting books based on search parameters
-                    if (Validation::validateInput($offset)) {
-                        $query2 = SQL_GET_BOOK_TOP_SEARCHES_COUNT;
-                        $database->query($query2);
-                        $queryResult = $database->loadObjectList();
-                        $books = array();
-                        foreach ($queryResult as $bookWrapper) {
-                            $query3 = "SELECT * FROM publications WHERE id =  '" . $bookWrapper->bookid . "'";
-                            $database->query($query3);
-                            $book = $database->loadObjectList();
-                            $books[] = $book[0];
-                        }
-                        foreach ($books as $queryBook) {
-                            $getAuthorSql = SQL_GET_AUTHOR_BY_BOOK_ID;
-                            $getAuthorSql = str_replace("{{BOOK_ID}}", $queryBook->id, $getAuthorSql);
-                            $database->query($getAuthorSql);
-                            $authorResult = $database->loadObjectList();
-                            $queryBook->author = $authorResult[0]->firstname . " " . $authorResult[0]->lastname;
-                            $queryBook->authorid = $authorResult[0]->id;
-                            $queryBook->synopsis = mb_convert_encoding($queryBook->synopsis, "SJIS");
-
-                            $asinValuesSql = SQL_GET_BOOK_ASIN_VALUES . $queryBook->id;
-                            $database->query($asinValuesSql);
-                            $asinValuesResult = $database->loadObjectList();
-                            $queryBook->UK_ASIN = $asinValuesResult[0]->ukASIN;
-                            $queryBook->US_ASIN = $asinValuesResult[0]->usASIN;
-                        }
-                        $respBuilder = new ResponseBuilder(new Response($books, 200, $token));
-                        $respBuilder->fire();
-                        exit();
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
+            case "topSearched": {
+                $offset = $getArray['offset'];
+                //Getting books based on search parameters
+                if (Validation::validateInput($offset)) {
+                    $query2 = SQL_GET_BOOK_TOP_SEARCHES_COUNT;
+                    $database->query($query2);
+                    $queryResult = $database->loadObjectList();
+                    $books = array();
+                    foreach ($queryResult as $bookWrapper) {
+                        $query3 = "SELECT * FROM publications WHERE id =  '" . $bookWrapper->bookid . "'";
+                        $database->query($query3);
+                        $book = $database->loadObjectList();
+                        $books[] = $book[0];
                     }
-                    break;
+                    foreach ($books as $queryBook) {
+                        $getAuthorSql = SQL_GET_AUTHOR_BY_BOOK_ID;
+                        $getAuthorSql = str_replace("{{BOOK_ID}}", $queryBook->id, $getAuthorSql);
+                        $database->query($getAuthorSql);
+                        $authorResult = $database->loadObjectList();
+                        $queryBook->author = $authorResult[0]->firstname . " " . $authorResult[0]->lastname;
+                        $queryBook->authorid = $authorResult[0]->id;
+                        $queryBook->synopsis = mb_convert_encoding($queryBook->synopsis, "SJIS");
+
+                        $asinValuesSql = SQL_GET_BOOK_ASIN_VALUES . $queryBook->id;
+                        $database->query($asinValuesSql);
+                        $asinValuesResult = $database->loadObjectList();
+                        $queryBook->UK_ASIN = $asinValuesResult[0]->ukASIN;
+                        $queryBook->US_ASIN = $asinValuesResult[0]->usASIN;
+                    }
+                    $respBuilder = new ResponseBuilder(new Response($books, 200, $token));
+                    $respBuilder->fire();
+                    exit();
+                } else {
+                    //Illegal GET parameter, SQL injection attempt.
+                    Validation::badRequest($token);
                 }
-            case BOOK_GET_COMING_SOON: {
+                break;
+            }
+            case "comingSoon": {
                 //Gets all books coming soon
                 $offset = $getArray['offset'];
                 $date = new DateTime('tomorrow');
