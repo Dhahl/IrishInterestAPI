@@ -96,15 +96,17 @@ class Book
                 case BOOK_GET_LATEST2: {
                         //Gets all books from featured, has pagination
                         $offset = (int) $getArray['offset'];
+                        $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
                         if (Validation::validateInput($offset)) {
                             try {
-                                $q = "SELECT DISTINCT publications.id, publications.image, title, publications.published,
-                                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
-                                        FROM publications
-                                        INNER JOIN author_x_book on publications.id = author_x_book.bookid 
-                                        INNER JOIN authors on authors.id = author_x_book.authorid
-                                        WHERE published < DATE_ADD(CURDATE(), INTERVAL 1 DAY) 
-                                    ORDER BY published DESC LIMIT 30 OFFSET ${offset}";
+                                $q = "SELECT publications.id, publications.image, title, publications.published,
+										MIN(authors.id) as authorid, MIN(TRIM(authors.firstname)) as firstname, MIN(TRIM(authors.lastname)) as lastname
+                                        FROM publications, authors, author_x_book
+                                        WHERE publications.id = author_x_book.bookid 
+                                        AND authors.id = author_x_book.authorid
+                                        AND publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                                        GROUP BY publications.id
+                                        ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}";
                                 $database->query($q);
                                 http_response_code(200);
                                 echo $database->loadJsonObjectList();
@@ -120,21 +122,21 @@ class Book
                         }
                         break;
                     }
-            case BOOK_GET_LATEST: {
-                    //Gets all books from featured, has pagination
-                    $offset = $getArray['offset'];
-                    $tomorrowDt = new DateTime('tomorrow');
-                    $tomorrow = $tomorrowDt->format('Y-m-d');
+            // case BOOK_GET_LATEST: {
+            //         //Gets all books from featured, has pagination
+            //         $offset = $getArray['offset'];
+            //         $tomorrowDt = new DateTime('tomorrow');
+            //         $tomorrow = $tomorrowDt->format('Y-m-d');
 
-                    if (Validation::validateInput($offset)) {
-                        //$q = "SELECT author, authorid, id, image, title FROM publications WHERE published < DATE_ADD(CURDATE(),INTERVAL 1 DAY) ORDER BY published DESC LIMIT 30 OFFSET 0";
-                        $query = SQL_GET_BOOK_ALL_LATEST . "'" . $tomorrow . "'" . ' ORDER BY published DESC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
-                    }
-                    break;
-            }
+            //         if (Validation::validateInput($offset)) {
+            //             //$q = "SELECT author, authorid, id, image, title FROM publications WHERE published < DATE_ADD(CURDATE(),INTERVAL 1 DAY) ORDER BY published DESC LIMIT 30 OFFSET 0";
+            //             $query = SQL_GET_BOOK_ALL_LATEST . "'" . $tomorrow . "'" . ' ORDER BY published DESC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
+            //         } else {
+            //             //Illegal GET parameter, SQL injection attempt.
+            //             Validation::badRequest($token);
+            //         }
+            //         break;
+            // }
             case BOOK_GET_BY_ID2: {
                 $bookId = (int) $getArray['bookId'];
                 if (Validation::validateInput($bookId)) {
