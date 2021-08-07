@@ -36,137 +36,87 @@ class Book
     {
         self::initialize();
         //Initial state variables
-        $query = null;
         $queryResult = null;
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
             case BOOK_GET_ALL_BY_CATEGORY: {
-                    //Gets all books from a category, has pagination
-                    $categoryId = (int) $getArray['categoryId'];
-                    $offset = (int) $getArray['offset'];
-
-                    //Getting books based on category ID
-                    if (Validation::validateInput($offset) && Validation::validateInput($categoryId)) {
-                        try {
-                            $q = "SELECT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
-                            $database->query($q);
-                            http_response_code(200);
-                            echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
-                        } catch (Exception $e) {
-                            $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
-                            $respBuilder->fire();
-                        } finally {
-                            return;
-                        }
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
-                    }
-                    break;
+                $categoryId = (int) $getArray['categoryId'];
+                $offset = (int) $getArray['offset'];
+                try {
+                    $q = "SELECT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, id, image, title FROM publications WHERE categoryid = ${categoryId} LIMIT 30 OFFSET ${offset}";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
                 }
+                break;
+            }
             case BOOK_GET_ALL_BY_AUTHOR_ID: {
-                    //Gets all books from an author, has pagination
-                    $authorID = (int) $getArray['authorID'];
-                    $offset = (int) $getArray['offset'];
-
-                    //Getting books based on category ID
-                    if (Validation::validateInput($offset) && Validation::validateInput($authorID)) {
-                        try {
-                            $q = "SELECT DISTINCT publications.id, publications.image, title, publications.published,
-                                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
-                                        FROM publications
-                                        INNER JOIN author_x_book on publications.id = author_x_book.bookid 
-                                        INNER JOIN authors on authors.id = author_x_book.authorid
-                                        WHERE authors.id = ${authorID} LIMIT 30 OFFSET ${offset}";
-                            $database->query($q);
-                            http_response_code(200);
-                            echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
-                        } catch (Exception $e) {
-                            $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
-                            $respBuilder->fire();
-                        } finally {
-                            return;
-                        }
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
-                    }
+                //Gets all books from an author, has pagination
+                $authorID = (int) $getArray['authorID'];
+                $offset = (int) $getArray['offset'];
+                try {
+                    $q = "SELECT DISTINCT publications.id, publications.image, title, publications.published,
+                                authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
+                                FROM publications
+                                INNER JOIN author_x_book on publications.id = author_x_book.bookid 
+                                INNER JOIN authors on authors.id = author_x_book.authorid
+                                WHERE authors.id = ${authorID} LIMIT 30 OFFSET ${offset}";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
                 }
-                case BOOK_GET_LATEST2: {
-                        //Gets all books from featured, has pagination
-                        $offset = (int) $getArray['offset'];
-                        $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
-                        if (Validation::validateInput($offset)) {
-                            try {
-                                $q= "SELECT TRIM(author) as author, 
-                                    COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
-                                    id, image, title 
-                                    FROM publications 
-                                    WHERE publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
-                                    ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}"; 
-
-                                // $q = "SELECT publications.id, publications.image, title, publications.published,
-								// 		MIN(authors.id) as authorid, MIN(TRIM(authors.firstname)) as firstname, MIN(TRIM(authors.lastname)) as lastname
-                                //         FROM publications, authors, author_x_book
-                                //         WHERE publications.id = author_x_book.bookid 
-                                //         AND authors.id = author_x_book.authorid
-                                //         AND publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
-                                //         GROUP BY publications.id
-                                //         ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}";
-                                $database->query($q);
-                                http_response_code(200);
-                                echo $database->loadJsonObjectList();
-                            } catch (Exception $e) {
-                                $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
-                                $respBuilder->fire();
-                            } finally {
-                                return;
-                            }
-                        } else {
-                            //Illegal GET parameter, SQL injection attempt.
-                            Validation::badRequest($token);
-                        }
-                        break;
-                    }
-            // case BOOK_GET_LATEST: {
-            //         //Gets all books from featured, has pagination
-            //         $offset = $getArray['offset'];
-            //         $tomorrowDt = new DateTime('tomorrow');
-            //         $tomorrow = $tomorrowDt->format('Y-m-d');
-
-            //         if (Validation::validateInput($offset)) {
-            //             //$q = "SELECT author, authorid, id, image, title FROM publications WHERE published < DATE_ADD(CURDATE(),INTERVAL 1 DAY) ORDER BY published DESC LIMIT 30 OFFSET 0";
-            //             $query = SQL_GET_BOOK_ALL_LATEST . "'" . $tomorrow . "'" . ' ORDER BY published DESC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
-            //         } else {
-            //             //Illegal GET parameter, SQL injection attempt.
-            //             Validation::badRequest($token);
-            //         }
-            //         break;
-            // }
+                break;
+            }
+            case BOOK_GET_LATEST2: {
+                $offset = (int) $getArray['offset'];
+                $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
+                try {
+                    $q= "SELECT TRIM(author) as author, 
+                        COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                        id, image, title 
+                        FROM publications 
+                        WHERE publications.published < DATE_ADD(CURDATE(), INTERVAL 1 DAY)
+                        ORDER BY publications.published DESC LIMIT ${limit} OFFSET ${offset}"; 
+                    $database->query($q);
+                    http_response_code(200);
+                    echo $database->loadJsonObjectList();
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
+                }
+                break;
+            }
             case BOOK_GET_BY_ID2: {
                 $bookId = (int) $getArray['bookId'];
-                if (Validation::validateInput($bookId)) {
-                    try {
-                        $q = "SELECT publications.id, publications.image, publications.title, publications.synopsis,
-                            categoryid, publisher, genre, language, hardback, paperback, ebook, isbn, isbn13, vendor, vendorurl, pages,
-                            authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
-                            FROM publications
-                            INNER JOIN author_x_book on publications.id = author_x_book.bookid 
-                            INNER JOIN authors on authors.id = author_x_book.authorid
-                            WHERE publications.id = ${bookId}";
-                        $database->query($q);
-                        http_response_code(200);
-                        echo $database->loadJsonObject();
-                    } catch (Exception $e) {
-                        //Exception response.
-                        $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error.", 500, $token));
-                        $respBuilder->fire();
-                    } finally {
-                        return;
-                    }
-                } else {
-                    Validation::badRequest($token);
+                try {
+                    $q = "SELECT publications.id, publications.image, publications.title, publications.synopsis,
+                        categoryid, publisher, genre, language, hardback, paperback, ebook, isbn, isbn13, vendor, vendorurl, pages,
+                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
+                        FROM publications
+                        INNER JOIN author_x_book on publications.id = author_x_book.bookid 
+                        INNER JOIN authors on authors.id = author_x_book.authorid
+                        WHERE publications.id = ${bookId}";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo $database->loadJsonObject();
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
                 }
             }
             case BOOK_GET_BY_SEARCH: {
@@ -222,51 +172,19 @@ class Book
                     break;
                 }
             case BOOK_GET_COMING_SOON: {
-                    //Gets all books coming soon
-                    $offset = $getArray['offset'];
-                    $date = new DateTime('tomorrow');
-                    $date = $date->format('Y-m-d');
+                //Gets all books coming soon
+                $offset = $getArray['offset'];
+                $date = new DateTime('tomorrow');
+                $date = $date->format('Y-m-d');
 
-                    if (Validation::validateInput($offset)) {
-                        $query = SQL_GET_BOOK_COMING_SOON . "'" . $date . "'" . ' ORDER BY published ASC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
-                    } else {
-                        //Illegal GET parameter, SQL injection attempt.
-                        Validation::badRequest($token);
-                    }
-                    break;
+                if (Validation::validateInput($offset)) {
+                    $query = SQL_GET_BOOK_COMING_SOON . "'" . $date . "'" . ' ORDER BY published ASC ' . ' LIMIT ' . 30 . ' OFFSET ' . $offset;
+                } else {
+                    //Illegal GET parameter, SQL injection attempt.
+                    Validation::badRequest($token);
                 }
-        }
-
-        //Execute query
-        try {
-            $database->query($query);
-            $queryResult = $database->loadObjectList();
-
-            //GET author for book
-            foreach ($queryResult as $queryBook) {
-                $getAuthorSql = SQL_GET_AUTHOR_BY_BOOK_ID;
-                $getAuthorSql = str_replace("{{BOOK_ID}}", $queryBook->id, $getAuthorSql);
-                $database->query($getAuthorSql);
-                $authorResult = $database->loadObjectList();
-                $queryBook->author = $authorResult[0]->firstname . " " . $authorResult[0]->lastname;
-                $queryBook->authorid = $authorResult[0]->id;
-                $queryBook->synopsis = mb_convert_encoding($queryBook->synopsis, "SJIS");
-
-                $asinValuesSql = SQL_GET_BOOK_ASIN_VALUES . $queryBook->id;
-                $database->query($asinValuesSql);
-                $asinValuesResult = $database->loadObjectList();
-                $queryBook->UK_ASIN = $asinValuesResult[0]->ukASIN;
-                $queryBook->US_ASIN = $asinValuesResult[0]->usASIN;
+                break;
             }
-
-
-            $respBuilder = new ResponseBuilder(new Response($queryResult, 200, $token));
-            $respBuilder->fire();
-        } catch (Exception $e) {
-            //Exception response.
-            $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error.", 500, $token));
-            $respBuilder->fire();
-            exit();
         }
     }
 
