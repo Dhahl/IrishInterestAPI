@@ -32,8 +32,6 @@ define('CONTACT_US', 'contactUs');
 //AUTHOR search types
 define('AUTHOR_GET_ALL', 'getAll');
 define('AUTHORS_COUNT', 'count');
-define('AUTHORS_ABC_COUNT', 'abcCount');
-define('AUTHORS_LASTNAME_STARTS_WITH', 'byLastNameStartsWith');
 define('AUTHOR_GET_BY_ID', 'getById');
 define('AUTHOR_GET_BY_NAME', 'byName');
 define('AUTHOR_GET_BY_BOOK_ID', 'byBookId');
@@ -62,17 +60,11 @@ define('SQL_GET_CATEGORY_ALL', 'SELECT categories.id, TRIM(categories.Name) as n
 								ORDER BY name');
 
 //BOOK - SQL STATEMENTS
-define('SQL_GET_BOOK_ALL_BY_AUTHOR', 'SELECT author_x_book.*, publications.* FROM author_x_book INNER JOIN publications ON author_x_book.bookid = publications.id WHERE author_x_book.authorid = ');
-define('SQL_GET_BOOK_ALL_LATEST', 'SELECT author, authorid, id, image, title FROM publications WHERE published < ');
 define('SQL_GET_BOOK_BY_ID', 'SELECT * FROM publications WHERE id = ');
 define('SQL_GET_BOOK_BY_SEARCH',  "MATCH (title, author) against ( {{AGAINST}} IN BOOLEAN MODE) * 5 +
 				MATCH(title, author, genre, area, synopsis) AGAINST( {{AGAINST}} IN BOOLEAN MODE) AS score
 				from publications WHERE MATCH(title, author, genre, area, synopsis) AGAINST( {{AGAINST}} IN BOOLEAN MODE)
 				AND publications.image <> '' ORDER BY score DESC");
-define('SQL_GET_BOOK_TOP_SEARCHES_COUNT', 'SELECT COUNT(*) AS Rows, bookid FROM search_history GROUP BY bookid ORDER BY Rows desc LIMIT 6');
-define('SQL_GET_BOOK_COMING_SOON', 'SELECT * FROM publications WHERE published >= ');
-define('SQL_GET_BOOK_EDITORS_CHOICE', 'SELECT * FROM publications WHERE editorschoice = 1 LIMIT 6');
-define('SQL_GET_BOOK_ASIN_VALUES', 'SELECT usASIN, ukASIN FROM publication_asins WHERE id = ');
 
 
 //AUTHOR - SQL STATEMENTS4

@@ -41,7 +41,7 @@ class Author
 
         switch ($getArray['type']) {
 
-            case AUTHORS_ABC_COUNT: {
+            case 'abcCount': {
                 try {
                     $q = "SELECT substr(TRIM(lastname),1,1) as alpha, COUNT(id) as count FROM authors GROUP BY alpha ORDER BY alpha";
                     $database->query($q);
@@ -56,7 +56,7 @@ class Author
                 break;
             }
 
-            case AUTHORS_LASTNAME_STARTS_WITH: {
+            case 'byLastNameStartsWith': {
                 $startsWith = (String) $getArray['startsWith'];
                 if (Validation::validateInput($startsWith) == false) {
                     Validation::badRequest($token);

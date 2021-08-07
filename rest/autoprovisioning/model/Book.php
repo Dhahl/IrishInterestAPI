@@ -175,41 +175,53 @@ class Book
                     break;
                 }
             case "topSearched": {
-                $offset = $getArray['offset'];
-                //Getting books based on search parameters
-                if (Validation::validateInput($offset)) {
-                    $query2 = SQL_GET_BOOK_TOP_SEARCHES_COUNT;
-                    $database->query($query2);
-                    $queryResult = $database->loadObjectList();
-                    $books = array();
-                    foreach ($queryResult as $bookWrapper) {
-                        $query3 = "SELECT * FROM publications WHERE id =  '" . $bookWrapper->bookid . "'";
-                        $database->query($query3);
-                        $book = $database->loadObjectList();
-                        $books[] = $book[0];
-                    }
-                    foreach ($books as $queryBook) {
-                        $getAuthorSql = SQL_GET_AUTHOR_BY_BOOK_ID;
-                        $getAuthorSql = str_replace("{{BOOK_ID}}", $queryBook->id, $getAuthorSql);
-                        $database->query($getAuthorSql);
-                        $authorResult = $database->loadObjectList();
-                        $queryBook->author = $authorResult[0]->firstname . " " . $authorResult[0]->lastname;
-                        $queryBook->authorid = $authorResult[0]->id;
-                        $queryBook->synopsis = mb_convert_encoding($queryBook->synopsis, "SJIS");
-
-                        $asinValuesSql = SQL_GET_BOOK_ASIN_VALUES . $queryBook->id;
-                        $database->query($asinValuesSql);
-                        $asinValuesResult = $database->loadObjectList();
-                        $queryBook->UK_ASIN = $asinValuesResult[0]->ukASIN;
-                        $queryBook->US_ASIN = $asinValuesResult[0]->usASIN;
-                    }
-                    $respBuilder = new ResponseBuilder(new Response($books, 200, $token));
-                    $respBuilder->fire();
-                    exit();
-                } else {
-                    //Illegal GET parameter, SQL injection attempt.
-                    Validation::badRequest($token);
+                try {
+                    $q = "SELECT * FROM search_history LIMIT 50";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo $database->loadJsonObject();
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error.";
+                } finally {
+                    return;
                 }
+
+
+
+
+                // $offset = (int) $getArray['offset'];
+                // $query2 = 'SELECT COUNT(*) AS Rows, bookid FROM search_history GROUP BY bookid ORDER BY Rows desc LIMIT 6';
+                // $database->query($query2);
+                // $queryResult = $database->loadObjectList();
+                // $books = array();
+                // foreach ($queryResult as $bookWrapper) {
+                //     $query3 = "SELECT * FROM publications WHERE id =  '" . $bookWrapper->bookid . "'";
+                //     $database->query($query3);
+                //     $book = $database->loadObjectList();
+                //     $books[] = $book[0];
+                // }
+                // foreach ($books as $queryBook) {
+                //     $getAuthorSql = 'SELECT author_x_book.*, authors.* 
+        		// 	            FROM author_x_book LEFT JOIN authors 
+        		// 	            ON  author_x_book.authorid = authors.id
+        		// 	            WHERE  author_x_book.bookid = {{BOOK_ID}}';
+                //     $getAuthorSql = str_replace("{{BOOK_ID}}", $queryBook->id, $getAuthorSql);
+                //     $database->query($getAuthorSql);
+                //     $authorResult = $database->loadObjectList();
+                //     $queryBook->author = $authorResult[0]->firstname . " " . $authorResult[0]->lastname;
+                //     $queryBook->authorid = $authorResult[0]->id;
+                //     $queryBook->synopsis = mb_convert_encoding($queryBook->synopsis, "SJIS");
+
+                //     $asinValuesSql = 'SELECT usASIN, ukASIN FROM publication_asins WHERE id = ' . $queryBook->id;
+                //     $database->query($asinValuesSql);
+                //     $asinValuesResult = $database->loadObjectList();
+                //     $queryBook->UK_ASIN = $asinValuesResult[0]->ukASIN;
+                //     $queryBook->US_ASIN = $asinValuesResult[0]->usASIN;
+                // }
+                // $respBuilder = new ResponseBuilder(new Response($books, 200, $token));
+                // $respBuilder->fire();
+                // exit();
                 break;
             }
         }
