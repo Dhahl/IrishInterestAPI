@@ -33,7 +33,6 @@ define('CONTACT_US', 'contactUs');
 define('AUTHOR_GET_ALL', 'getAll');
 define('AUTHORS_COUNT', 'count');
 define('AUTHOR_GET_BY_ID', 'getById');
-define('AUTHOR_GET_BY_NAME', 'byName');
 define('AUTHOR_GET_BY_BOOK_ID', 'byBookId');
 
 //REVIEW/COMMENT search types

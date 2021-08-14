@@ -56,6 +56,33 @@ class Author
                 break;
             }
 
+            case 'searchByName': {
+                $value = (string) $getArray['searchBy'];
+                if (strlen($value) < 4) {
+                    http_response_code(200);
+                    echo '[]';
+                    return;
+                }   
+                if (Validation::validateInput($value) == false) {
+                    Validation::badRequest($token);
+                    return;
+                }
+                try {
+                    $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE 
+                    TRIM(lastname) RLIKE '${value}' OR 
+                    TRIM(firstname) RLIKE '${value}' ORDER BY lastname ASC";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error: ${e}.", 500, $token));
+                    $respBuilder->fire();
+                } finally {
+                    return;
+                }
+                break;
+            }
+
             case 'byLastNameStartsWith': {
                 $startsWith = (String) $getArray['startsWith'];
                 if (Validation::validateInput($startsWith) == false) {
@@ -128,7 +155,7 @@ class Author
                 break;
             }
 
-            case AUTHOR_GET_BY_NAME:
+            case "byName":
             {
                 //Gets author by first name or last name or both
                 $firstName = null;
