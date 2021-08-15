@@ -67,10 +67,11 @@ class Author
                     Validation::badRequest($token);
                     return;
                 }
+                // $value = "^(?=.*" . join(")(?=.*", explode('|', $value)) . ")";
+
                 try {
                     $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE 
-                    TRIM(lastname) RLIKE '${value}' OR 
-                    TRIM(firstname) RLIKE '${value}' ORDER BY lastname ASC";
+                    CONCAT(TRIM(lastname), ', ', TRIM(firstname)) RLIKE '${value}' LIMIT 30";
                     $database->query($q);
                     http_response_code(200);
                     echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
