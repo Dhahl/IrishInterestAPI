@@ -78,6 +78,34 @@ class Book
                 }
                 break;
             }
+
+            case "searchByName": {
+                $value = (string) $getArray['searchBy'];
+                if (strlen($value) < 4) {
+                    http_response_code(200);
+                    echo '[]';
+                    return;
+                }
+                if (Validation::validateInput($value) == false) {
+                    Validation::badRequest($token);
+                    return;
+                }
+                try {
+                    $q = "SELECT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                        id, image, title FROM publications 
+                        WHERE title RLIKE '${value}' LIMIT 30";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error. ${e}";
+                } finally {
+                    return;
+                }
+                break;
+            }
+
             case "getPublished": {
                     $offset = (int) $getArray['offset'];
                     $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;

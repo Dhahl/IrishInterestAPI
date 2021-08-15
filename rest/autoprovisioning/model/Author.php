@@ -67,7 +67,6 @@ class Author
                     Validation::badRequest($token);
                     return;
                 }
-                // $value = "^(?=.*" . join(")(?=.*", explode('|', $value)) . ")";
 
                 try {
                     $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE 
