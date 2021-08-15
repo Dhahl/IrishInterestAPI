@@ -91,7 +91,7 @@ class Author
                     return;
                 }
                 try {
-                    $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE TRIM(lastname) LIKE '${startsWith}%' ORDER BY lastname ASC";
+                    $q = "SELECT id, TRIM(firstname) as firstname, TRIM(lastname) as lastname FROM authors WHERE TRIM(lastname) LIKE '${startsWith}%' ORDER BY CONCAT(TRIM(lastname), ', ', TRIM(firstname)) ASC";
                     $database->query($q);
                     http_response_code(200);
                     echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
