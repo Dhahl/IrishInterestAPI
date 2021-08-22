@@ -620,47 +620,23 @@ class User
     }
 
 
-
     public static function getPrivacyPolicy($getArray){
-
         self::initialize();
-
-        $token = $_GET['token'];
-
         $path = __DIR__;
-
         $path = str_replace("rest/autoprovisioning/user", "/legal/PrivacyPolicy.txt", $path);
-
-        $privacyPolicy = file_get_contents($path);
-
-
-
-        $respBuilder = new ResponseBuilder(new Response($privacyPolicy, 200, $token));
-
-        $respBuilder->fire();
-
+        $termsAndConditions = file_get_contents($path);
+        http_response_code(200);
+        echo json_encode($termsAndConditions);
     }
 
 
-
     public static function getTermsAndConditions($getArray){
-
         self::initialize();
-
-        $token = $_GET['token'];
-
         $path = __DIR__;
-
         $path = str_replace("rest/autoprovisioning/user", "/legal/TermsAndConditions.txt", $path);
-
         $termsAndConditions = file_get_contents($path);
-
-
-
-        $respBuilder = new ResponseBuilder(new Response($termsAndConditions, 200, $token));
-
-        $respBuilder->fire();
-
+        http_response_code(200);
+        echo json_encode($termsAndConditions);
     }
 
 
