@@ -173,7 +173,8 @@ class Book
                 try {
                     $q = "SELECT publications.id, publications.image, publications.title, publications.synopsis,
                         categoryid, publisher, genre, language, hardback, paperback, ebook, isbn, isbn13, vendor, vendorurl, pages,
-                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname
+                        authors.id as authorid, TRIM(authors.firstname) as firstname, TRIM(authors.lastname) as lastname,
+                        published
                         FROM publications
                         INNER JOIN author_x_book on publications.id = author_x_book.bookid 
                         INNER JOIN authors on authors.id = author_x_book.authorid
