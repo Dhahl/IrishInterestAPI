@@ -283,11 +283,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
 
         case CONTACT_US:{
-
-            User::contactUs($bodyJson, $core->database);
-
+            User::contactUs($bodyJson);
             break;
-
         }
 
     }

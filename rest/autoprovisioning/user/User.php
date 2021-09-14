@@ -541,82 +541,45 @@ class User
 
 
 
-    public static function contactUs($postParams, $database)
-
+    public static function contactUs($postParams)
     {
-
         self::initialize();
-
         $token = $postParams->token;
-
         $enc = $postParams->enc; //Read encrypted data
 
-
-
         //TODO: This is only for testing purposes. Will be removed in final version.
-
         if (isset($postParams->isTest) && $postParams->isTest == true) {
-
             $enc = AuthenticationController::encryptMessage($enc);
-
         }
 
         //We have to decode the enc data
-
         $dec = AuthenticationController::decryptMessage($enc);
-
         $dec = json_encode($dec);
-
         $dec = json_decode($dec);
 
-
-
         $contactName = $dec->contactName;
-
         $contactEmail = $dec->contactEmail;
-
         $contactMessage = $dec->contactMessage;
 
-
-
         $header = "From: \"" . $contactName . "\" <" . $contactEmail . ">\r\n";
-
         $header .= "MIME-Version: 1.0\r\n";
-
         $header .= "Mailer: Irish Interest\r\n";
-
         $header .= "Content-Type: text/plain; charset=\"iso-8859-1\"\r\n";
-
         $header .= "Content-Transfer-Encoding: 7bit\r\n";
-
         $mail_address = "administrator@irishinterest.ie";
-
         $subject = "Contact message from " . $contactName;
-
         $body = $contactMessage;
-
         $sent = @mail($mail_address, $subject, $body, $header);
 
-
-
         try {
-
             $respBuilder = new ResponseBuilder(new Response("Success", 200, $token));
-
             $respBuilder->fire();
-
         } catch (Exception $e) {
-
             //Exception response.
-
             $respBuilder = new ResponseBuilder(new Response("Error, Internal Server Error.", 500, $token));
-
             $respBuilder->fire();
-
             exit();
-
         }
-
     }
 
 
