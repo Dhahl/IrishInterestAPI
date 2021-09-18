@@ -103,6 +103,21 @@ class Author
                 break;
             }
 
+            case "detailsById": {
+                $authorId = (int) $getArray['authorId'];
+                try {
+                    $q = "SELECT * FROM authors WHERE id = '${authorId}'";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo $database->loadJsonObject();
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error." . $e;
+                } finally {
+                    return;
+                }
+            }
+
             case AUTHORS_COUNT: {
                 try {
                     $q = "SELECT COUNT(id) as authors_count FROM authors";

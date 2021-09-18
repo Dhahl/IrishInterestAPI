@@ -36,7 +36,6 @@ class Book
     {
         self::initialize();
         //Initial state variables
-        $queryResult = null;
         $token = $_GET['token'];
 
         switch ($getArray['type']) {
@@ -106,7 +105,7 @@ class Book
                 break;
             }
 
-            case "getPublished": {
+            case "getLatest2": {
                     $offset = (int) $getArray['offset'];
                     $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
                     try {
@@ -127,7 +126,8 @@ class Book
                     }
                     break;
                 }
-            case "getLatest2": {
+
+            case "getPublished": {
                 $offset = (int) $getArray['offset'];
                 $limit = isset($getArray['limit']) ? (int) $getArray['limit'] : 30;
                 try {
