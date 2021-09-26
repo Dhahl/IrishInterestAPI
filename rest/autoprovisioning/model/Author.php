@@ -149,14 +149,24 @@ class Author
                     return;
                 }
                 try {
-                    $q = "SELECT DISTINCT author_x_book.bookid as bookid, authors.id as authorid, 
+                    $q = "SELECT DISTINCT author_x_book.bookid as bookid, authors.id as id, 
 	                    TRIM(authors.firstname) as firstname, 
 	                    TRIM(authors.lastname) as lastname FROM authors
                         INNER JOIN author_x_book ON author_x_book.authorid = authors.id
                         WHERE bookid IN (${sqlBookIds})";
                     $database->query($q);
                     http_response_code(200);
-                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                    $objects = $database->loadObjectList();
+                    $results = [];
+                    foreach($objects as $o) {
+                        $key = $o->bookid;
+                        if (!array_key_exists($key, $results)) {
+                            $results[$key] = [];
+                        }
+                        unset($o->bookid);
+                        array_push($results[$key], $o);
+                    }
+                    echo json_encode($results);
                 } catch (Exception $e) {
                     http_response_code(500);
                     echo "Error, Internal Server Error." . $e;
