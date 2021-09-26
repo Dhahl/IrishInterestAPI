@@ -133,6 +133,39 @@ class Author
                 break;
             }
 
+            case "byBookIds": {
+                // get all authors for a range of book ids:
+                $bookIdsList = (string) $getArray['ids'];
+                $bookIds = [];
+                foreach(explode(',', $bookIdsList) as $id) {
+                    $id = (int) $id;
+                    if($id != 0) {
+                        array_push($bookIds, (int) $id);
+                    }
+                }
+                $sqlBookIds = join(",", $bookIds);
+                if(count($bookIds) == 0) {
+                    echo "[]";
+                    return;
+                }
+                try {
+                    $q = "SELECT DISTINCT author_x_book.bookid as bookid, authors.id as authorid, 
+	                    TRIM(authors.firstname) as firstname, 
+	                    TRIM(authors.lastname) as lastname FROM authors
+                        INNER JOIN author_x_book ON author_x_book.authorid = authors.id
+                        WHERE bookid IN (${sqlBookIds})";
+                    $database->query($q);
+                    http_response_code(200);
+                    echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
+                } catch (Exception $e) {
+                    http_response_code(500);
+                    echo "Error, Internal Server Error." . $e;
+                } finally {
+                    return;
+                }
+                break;
+            }
+
             case AUTHOR_GET_ALL:
             {
                 //Gets all authors, has pagination
