@@ -134,7 +134,7 @@ class Author
             }
 
             case "byBookIds": {
-                // get all authors for a range of book ids:
+                // get all authors for a range of book ids (comma separated)
                 $bookIdsList = (string) $getArray['ids'];
                 $bookIds = [];
                 foreach(explode(',', $bookIdsList) as $id) {
@@ -145,7 +145,7 @@ class Author
                 }
                 $sqlBookIds = join(",", $bookIds);
                 if(count($bookIds) == 0) {
-                    echo "[]";
+                    echo "{}";
                     return;
                 }
                 try {
