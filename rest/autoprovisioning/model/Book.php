@@ -90,7 +90,7 @@ class Book
                     return;
                 }
                 try {
-                    $q = "SELECT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                    $q = "SELECT DISTINCT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
                         id, image, title FROM publications 
                         WHERE title RLIKE '${value}' LIMIT 30";
                     $database->query($q);
