@@ -90,9 +90,14 @@ class Book
                     return;
                 }
                 try {
-                    $q = "SELECT DISTINCT TRIM(author) as author, COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
-                        id, image, title FROM publications 
-                        WHERE title RLIKE '${value}' LIMIT 30";
+                    $q = "SELECT DISTINCT TRIM(author) as author, 
+                    COALESCE(CAST(authorid AS UNSIGNED), 0) as authorid, 
+                    id, image, title,
+                    MATCH (title, author) against ('${value}' IN BOOLEAN MODE) * 6 + 
+                    MATCH(genre, area, synopsis) against ('${value}' IN BOOLEAN MODE) AS score
+                    FROM publications
+                    WHERE MATCH(title, author, genre, area, synopsis) against ('${value}' IN BOOLEAN MODE)
+                    ORDER BY score DESC LIMIT 30";
                     $database->query($q);
                     http_response_code(200);
                     echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
