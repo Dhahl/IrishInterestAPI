@@ -20,6 +20,10 @@ class Author
         self::$initialized = true;
     }
 
+    private static function onlyAlpha($string) {
+        return $string;
+    }
+
     /**
      * Get function for Author model. This function is called from request.php. When a valid request is triggered this function filters through the
      * request type and other GET parameters and builds an appropriate SQL query.
@@ -43,7 +47,8 @@ class Author
 
             case 'abcCount': {
                 try {
-                    $q = "SELECT substr(TRIM(lastname),1,1) as alpha, COUNT(id) as count FROM authors GROUP BY alpha ORDER BY alpha";
+                    $q = "SELECT substr(TRIM(lastname),1,1) as alpha, COUNT(id) as count FROM authors 
+                    GROUP BY alpha HAVING alpha REGEXP '^[a-z]' ORDER BY alpha;";
                     $database->query($q);
                     http_response_code(200);
                     echo '[' . join(",", array_map('json_encode', $database->loadObjectList())) . ']';
